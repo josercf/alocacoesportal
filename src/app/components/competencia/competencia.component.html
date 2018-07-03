@@ -1,0 +1,11 @@
+<div class="columns">
+  <div class="column">
+    <div class="field" *ngFor="let disciplina of disciplinas">
+      <div class="control">
+        <label class="checkbox">
+          <input type="checkbox" (change)="competenciaClick(disciplina)"> {{disciplina.descricao}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

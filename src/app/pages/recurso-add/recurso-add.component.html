@@ -1,0 +1,119 @@
+<form #form="ngForm">
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Nome" name="nome" [(ngModel)]="recurso.nome">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label">Matrícula</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Matrícula" name="matricula" [(ngModel)]="recurso.matricula">
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label">Login</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Login" name="login" [(ngModel)]="recurso.login">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label">Admissão</label>
+        <div class="control">
+          <input id="datepickerDemo" class="input" type="date" name="admissao" [(ngModel)]="recurso.admissao">
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label">Desligamento</label>
+        <div class="control">
+          <input id="datepickerDemo" class="input" type="date" name="desligamento" [(ngModel)]="recurso.desligamento">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <div class="control">
+          <label class="label">Campus</label>
+          <div class="select">
+            <select  [(ngModel)]="recurso.campus" name="campus">
+              <option>Selecione</option>
+              <option *ngFor="let item of campus"  [ngValue]="item">{{item.descricao}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <label class="label">Area</label>
+      <div class="field">
+        <div class="control">
+          <div class="select">
+            <select [(ngModel)]="recurso.area" name="area">
+              <option>Selecione</option>
+              <option *ngFor="let item of area"  [ngValue]="item">{{item.descricao}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="recurso.email">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <!-- <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span> -->
+        </div>
+        <!-- <p class="help is-danger">E-mail inválido</p> -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="tabs">
+    <ul>
+      <li [ngClass]="{'is-active': tab.name == tabActive}" *ngFor="let tab of tabs">
+        <a (click)="tabSelect(tab.name)">{{tab.title}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <app-competencia [style.display]="'competencia' == tabActive ? 'inherit':'none'" (onItemClicked)="competenciaClick($event)"></app-competencia>
+
+</form>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link" (click)="salvar()">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-text">Cancel</button>
+  </div>
+</div>
