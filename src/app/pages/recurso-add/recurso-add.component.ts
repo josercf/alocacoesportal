@@ -18,6 +18,7 @@ export class RecursoAddComponent implements OnInit {
   area: Area[];
   
   recurso: Recurso = new Recurso();
+  novoTelefone: string;
 
   tabActive: string = "";
   tabs: any[] = [];
@@ -28,6 +29,7 @@ export class RecursoAddComponent implements OnInit {
       this.carregarAreas();
 
     this.recurso.competencias = [];
+    this.recurso.telefones = [];
 
     this.tabs.push(
       { title: "Competencia", name: "competencia" },
@@ -64,6 +66,15 @@ export class RecursoAddComponent implements OnInit {
 
   tabSelect(tabName: string) {
     this.tabActive = tabName;
+  }
+
+  removerTelefone(index: number){
+    this.recurso.telefones.splice(index);
+  }
+
+  addTelefone(){
+    this.recurso.telefones.push(this.novoTelefone);
+    this.novoTelefone = "";
   }
 
   salvar() {
