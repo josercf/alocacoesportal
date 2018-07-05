@@ -1,18 +1,42 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        Nome
-      </th>
-      <th>
+<div class="columns">
+  <div class="column">
+    <a class="button is-pulled-right" routerLink="/monitor">Novo monitor</a>
+  </div>
+</div>
 
-      </th>     
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of recursos">
-      <td>{{item.Nome}}</td>
-    </tr>
+<div class="columns">
+  <div class="column">
+    <table class="table is-fullwidth is-hoverable">
+      <thead>
+        <tr>
+          <th>
+            Nome
+          </th>
+          <th>
+            Matricula
+          </th>
+          <th>
+            E-mail
+          </th>
+          <th>
+            Dt. admissão
+          </th>
+          <th>
 
-  </tbody>
-</table>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of recursos">
+          <td>{{item.nome}}</td>
+          <td>{{item.matricula}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.admissao| date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <a class="button is-info is-outlined" [routerLink]="['/monitor', item.key]">Editar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
